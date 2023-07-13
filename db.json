@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "firstName": "t",
+      "lastName": "test2",
+      "email": "testdasdas",
+      "mobile": 89789797976
+    },
+    {
+      "id": 5,
+      "firstName": "fafas",
+      "lastName": "fasf",
+      "email": "fasf",
+      "mobile": 4554654
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
