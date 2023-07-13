@@ -1,53 +1,74 @@
 <nav class=" navbar navbar-light bg-primary">
-    <div class="container-fluid">
-        <h1>My Members</h1>
-        <div class="d-flex">
-            <button type="button"data-toggle="modal" data-target="#exampleModal"class="btn btn-success">Add Member</button>
-        </div>
+  <div class="container-fluid">
+    <h1>My Members</h1>
+    <div class="d-flex">
+      <button type="button" class="btn btn-info btn-lg" (click)="openModal()" class="btn btn-success">Add
+        Member</button>
     </div>
+  </div>
 </nav>
 
-<table class="table mt-3">
-    <thead>
-        <tr>
-            <th scope="col">Member ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Mobile No.</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>123</td>
-            <td>Utkarsh</td>
-            <td>Gupta</td>
-            <td>8979740217</td>
-            <td>
-                <button class="btn btn-info">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-    </tbody>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Member ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Mobile No.</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>123</td>
+      <td>Utkarsh</td>
+      <td>Gupta</td>
+      <td>ut.gupta29@gmail.com</td>
+      <td>8979740217</td>
+      <td>
+        <button class="btn btn-info">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Member Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter First Name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Last Name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1">Email ID</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Last Name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1">Mobile Number</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter Mobile Number">
+          </div>
+        
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+        <button type="button" class="btn btn-default" (click)="onCloseHandled()">Add</button>
       </div>
     </div>
   </div>
+</div>
