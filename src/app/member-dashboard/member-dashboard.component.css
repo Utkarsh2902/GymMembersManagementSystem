@@ -1,0 +1,7 @@
+@media screen and (max-width: 992px) {
+    .smalldis {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+    }
+}

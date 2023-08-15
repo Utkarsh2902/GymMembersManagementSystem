@@ -7,11 +7,15 @@ import { MemberDashboardComponent } from './member-dashboard/member-dashboard.co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MemberSignupComponent } from './member-signup/member-signup.component';
+import { MemberLoginComponent } from './member-login/member-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MemberDashboardComponent
+    MemberDashboardComponent,
+    MemberSignupComponent,
+    MemberLoginComponent
   ],
   imports: [
     BrowserModule,
