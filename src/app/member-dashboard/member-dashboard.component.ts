@@ -15,11 +15,12 @@ export class MemberDashboardComponent implements OnInit {
   }
   onCloseHandled() {
     this.display = "none";
+    this.formValue.reset();
   }
   formValue !: FormGroup;
   memberModalObj: MemberModal = new MemberModal();
   memberData !: any;
-  showAdd ! : boolean;
+  showAdd !: boolean;
   showUpdate !: boolean;
   constructor(private formbuilber: FormBuilder, private api: ApiService) { }
   ngOnInit(): void {
@@ -31,10 +32,10 @@ export class MemberDashboardComponent implements OnInit {
     })
     this.getAllMember();
   }
-  clickAddMember(){
+  clickAddMember() {
     this.formValue.reset();
-    this.showAdd=true;
-    this.showUpdate=false;
+    this.showAdd = true;
+    this.showUpdate = false;
   }
   postMemberDetails() {
     this.memberModalObj.firstName = this.formValue.value.firstName;
@@ -42,19 +43,26 @@ export class MemberDashboardComponent implements OnInit {
     this.memberModalObj.email = this.formValue.value.email;
     this.memberModalObj.mobile = this.formValue.value.mobile;
 
+    // Assign a unique id by incrementing the highest existing id
+    const maxId = Math.max(...this.memberData.map((member: any) => member.id), 0); // Get the max id
+    this.memberModalObj.id = maxId + 1;
+
     this.api.postMember(this.memberModalObj)
-      .subscribe((res: any) => {
-        console.log(res);
-        alert('Member Added Sucessfully')
-        let ref = document.getElementById('cancel')
-        ref?.click();
-        this.formValue.reset();
-        this.getAllMember();
-      },
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+          alert('Member Added Successfully');
+          let ref = document.getElementById('cancel');
+          ref?.click();
+          this.formValue.reset();
+          this.getAllMember();
+        },
         (err: any) => {
-          alert('something want wrong')
-        })
+          alert('Something went wrong');
+        }
+      );
   }
+
   getAllMember() {
     this.api.getMember()
       .subscribe(res => {
@@ -69,13 +77,14 @@ export class MemberDashboardComponent implements OnInit {
       })
   }
   onEdit(row: any) {
-    this.showAdd= false;
-    this.showUpdate= true;
+    this.showAdd = false;
+    this.showUpdate = true;
     this.memberModalObj.id = row.id;
     this.formValue.controls['firstName'].setValue(row.firstName);
     this.formValue.controls['lastName'].setValue(row.firstName);
     this.formValue.controls['email'].setValue(row.email);
     this.formValue.controls['mobile'].setValue(row.mobile);
+
   }
   updateMemberDetails() {
     this.memberModalObj.firstName = this.formValue.value.firstName;

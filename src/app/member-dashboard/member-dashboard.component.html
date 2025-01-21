@@ -1,13 +1,4 @@
-<!-- previous code -->
-<!-- <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
-    <h1>My Members</h1>
-    <div class="d-flex">
-      <button type="button" (click)="clickAddMember()" class="btn btn-info btn-lg" (click)="openModal()" class="btn btn-success">Add
-        Member</button>
-    </div>
-  </div>
-</nav> -->
+
 <header class="p-3 bg-dark text-white" id="webhead">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -17,12 +8,13 @@
         </svg>
       </a>
       <h1 class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">My Members</h1>
-      <div class="text-end">
+      <div class="text-end" style="margin-right: 8px;">
         <button type="button" (click)="clickAddMember()" class="btn btn-info btn-lg" (click)="openModal()"
           class="btn btn-warning">Add
           Member</button>
-          <button routerLink="/login"  class="btn.btn-danger mx-2">Logout</button>
+       
       </div>
+      <button routerLink="/login"  class="btn btn-warning">Logout</button>
     </div>
   </div>
 </header>
@@ -79,7 +71,7 @@
             <div class="mb-3">
               <label for="exampleInputPassword1">Email ID</label>
               <input type="text" formControlName="email" class="form-control" id="exampleInputPassword1"
-                placeholder="Enter Last Name">
+                placeholder="Enter Email">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1">Mobile Number</label>
